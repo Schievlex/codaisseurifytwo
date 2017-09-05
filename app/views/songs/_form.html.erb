@@ -15,6 +15,7 @@
   <%= f.label :release_year %>
   <%= f.number_field :release_year %>
 
-  <%= f.submit (@song.new_record? ? "Create" : "Update") %>
+  <%= f.label :artist_id %>
+  <%= f.collection_select(:artist_id, Artist.all, :id, :name) %>
 
 <% end %>

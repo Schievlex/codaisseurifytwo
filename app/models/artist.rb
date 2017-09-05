@@ -12,5 +12,7 @@ class Artist < ApplicationRecord
     order(:name)
   	end
 
+  	has_many :songs
+
 
 end

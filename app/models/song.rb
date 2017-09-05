@@ -12,5 +12,6 @@ class Song < ApplicationRecord
     order(:title)
   	end
 
+    belongs_to :artist
 
 end

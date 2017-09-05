@@ -19,9 +19,9 @@ artists_count = Artist.all.length
 puts "#{artists_count} artists were created."
 
 
-Song.create!([ { title: "Go with the Flow", album: "Songs for the Deaf", release_year: 2002 }, 
-{ title: "Everlong", album: "The Colour and the Shape", release_year: 1997 },
-{ title: "Plug in Baby", album: "Origin of Symmetry", release_year: 2001}, ])
+Song.create!([ { title: "Go with the Flow", album: "Songs for the Deaf", release_year: 2002, artist: artist1 }, 
+{ title: "Everlong", album: "The Colour and the Shape", release_year: 1997, artist: artist2 },
+{ title: "Plug in Baby", album: "Origin of Symmetry", release_year: 2001, artist: 	artist3 }, ])
 
 songs_count = Song.all.length
 puts "#{songs_count} songs were created."
