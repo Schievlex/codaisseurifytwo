@@ -1,27 +1,30 @@
 class SongsController < ApplicationController
 	def index
-		@songs = Song.all
-	end
+	  	if params[:artist_id]
+	    @songs = Artist.find(params[:artist_id]).songs
+	  	else
+	    @songs = Song.all
+	    end 
+     end
 
 	def show
     	@song = Song.find(params[:id])
     end
 
     def new
-    @song = Song.new
+	  	#artist = Artist.find(params[:artist_id])
+	  	@song = Song.new
   	end
 
+ 	
   	def create
-    #song_params = params.require(:song).permit(:title, :album, :release_year)
+ 	  @song = Song.create(song_params.merge(artist_id: params[:artist_id]))
+      @song.save
+      redirect_to artist_path(params[:artist_id])
+    end
 
-    @song = Song.new(song_params)
 
-	    if @song.save
-	       redirect_to @song
-	    else
-	       render 'new'
-	    end
-  	end
+
 
   	def edit
     @song = Song.find(params[:id])
@@ -51,7 +54,7 @@ class SongsController < ApplicationController
   	private
 
   	def song_params
-    params.require(:song).permit(:title, :album, :release_year, :valley_id)
+    params.require(:song).permit(:title, :album, :release_year, :artist_id)
   	end
 
 end

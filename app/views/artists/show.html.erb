@@ -10,12 +10,14 @@
 <% if @artist.songs.any? %>
   <ul>
     <% @artist.songs.each do |song| %>
-      <li><%= song.title %></li>
+      <p><%= link_to song.title, artist_songs_path(@artist, @song) %></p>
     <% end %>
   </ul>
 <% else %>
   <p>This artist doesn't have any songs.</p>
 <% end %>
+
+<hr>
 
 <%= link_to 'Edit', edit_artist_path(@artist) %> |
 <%= link_to 'Back', artists_path %>

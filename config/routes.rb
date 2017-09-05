@@ -3,8 +3,12 @@ Rails.application.routes.draw do
   #root "songs#index"
   root "artists#index"
 
-  resources :songs
-  resources :artists
+  resources :artists do
+    resources :songs 
+  end
+
+  #resources :songs
+  #resources :artists
 
  # get "songs" => "songs#index"
   #get "songs/new" => "songs#new", as: :new_song
