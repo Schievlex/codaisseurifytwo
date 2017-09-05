@@ -9,7 +9,7 @@ class Song < ApplicationRecord
   	validates :release_year, length: { maximum: 4 }, allow_blank: true
 
 	def self.order_by_name
-    order(:name)
+    order(:title)
   	end
 
 
