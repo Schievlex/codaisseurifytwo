@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root "songs#index"
 
   resources :songs
+  resources :artists
 
  # get "songs" => "songs#index"
   #get "songs/new" => "songs#new", as: :new_song
