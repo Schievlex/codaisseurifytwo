@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root "songs#index"
+  #root "songs#index"
+  root "artists#index"
 
   resources :songs
   resources :artists
