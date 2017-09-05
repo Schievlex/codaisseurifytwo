@@ -5,8 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Song.create!([ { title: "Go with the Flow", album: "Songs for the Deaf", release_year: 2002,}, 
-{ title: "Everlong", album: "The Colour and the Shape", release_year: 1997,},
+Song.delete_all
+Artist.delete_all
+
+artist1 = Artist.create!( {name: "Queens of the Stone Age", image_url: "http://res.cloudinary.com/daun7eksg/image/upload/v1499596065/munk-one-queens-of-the-stone-age_uzfln9.jpg"} )
+
+artist2 = Artist.create!( {name: "Foo Fighters", image_url: "http://res.cloudinary.com/daun7eksg/image/upload/v1499685485/foofighterslogo_c5ihh3.png"} )
+
+
+artist3 = Artist.create!( {name: "Muse", image_url: "http://res.cloudinary.com/daun7eksg/image/upload/v1499596065/muse_zgbgpy.jpg"} )
+
+artists_count = Artist.all.length
+puts "#{artists_count} artists were created."
+
+
+Song.create!([ { title: "Go with the Flow", album: "Songs for the Deaf", release_year: 2002 }, 
+{ title: "Everlong", album: "The Colour and the Shape", release_year: 1997 },
 { title: "Plug in Baby", album: "Origin of Symmetry", release_year: 2001}, ])
 
 songs_count = Song.all.length
