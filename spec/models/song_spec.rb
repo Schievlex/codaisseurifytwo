@@ -8,4 +8,11 @@ RSpec.describe Song, type: :model do
     it { is_expected.to validate_uniqueness_of(:album) }
     it { is_expected.to validate_presence_of(:release_year) }
   end
+  describe "association with artist" do
+
+    it { is_expected.to belong_to :artist}
+    
+  end
 end
+
+ 
