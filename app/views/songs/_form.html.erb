@@ -18,4 +18,6 @@
   <%= f.label :artist_id %>
   <%= f.collection_select(:artist_id, Artist.all, :id, :name) %>
 
+  <%= f.submit (@artist.new_record? ? "Create" : "Update") %>
+
 <% end %>
