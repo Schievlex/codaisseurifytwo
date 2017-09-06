@@ -12,7 +12,7 @@ class Artist < ApplicationRecord
     order(:name)
   	end
 
-  	has_many :songs
+  	has_many :songs, dependent: :destroy
 
 
 end
