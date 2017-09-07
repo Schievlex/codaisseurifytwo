@@ -6,12 +6,17 @@ class SongsController < ApplicationController
      end
 
 	#def show
-    #	@song = Song.find(song_params.merge(artist_id: params[:artist_id]))
+    #@song = Song.find(song_params.merge(artist_id: params[:artist_id]))
     #end
 
-     def show
-    	artist = Artist.find(params[:id])
-    	@songs = artist.songs
+	#def show
+   # 	@song = @artist.songs.find(params[:id])
+    #end
+
+
+    def show
+       artist = Artist.find(params[:id])
+       @song = artist.songs.find(params[:id])
   	end
 
    # def new
