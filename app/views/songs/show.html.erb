@@ -5,5 +5,10 @@
 <p>Album: <%= @song.album %></p>
 <p>Release year: <%= @song.release_year %></p>
 
-<%= link_to "[Edit]", edit_artist_song_path(@song.id) %>
+
+
+<%= link_to "[Edit]", edit_artist_song_path(@artist, @song) %>
 <%= link_to "[Delete]", artist_song_path(@song.id), method: :delete, data: { confirm: "Are you sure?" } %>
+<hr>
+<%= link_to "[Artist Songs]", artist_path(@song.id) %>
+

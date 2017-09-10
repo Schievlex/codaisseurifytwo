@@ -3,7 +3,7 @@ class SongsController < ApplicationController
 	  	
 	    @songs = Artist.find(params[:artist_id]).songs
 	 
-     end
+    end
 
 	#def show
     #@song = Song.find(song_params.merge(artist_id: params[:artist_id]))
@@ -15,8 +15,8 @@ class SongsController < ApplicationController
 
 
     def show
-       artist = Artist.find(params[:id])
-       @song = artist.songs.find(params[:id])
+       @artist = Artist.find(params[:artist_id])
+       @song = @artist.songs.find(params[:artist_id])
   	end
 
    # def new
@@ -40,8 +40,9 @@ class SongsController < ApplicationController
 
 
   	def edit
-    @song = Song.find(params[:id])
-  	end
+  	 @artist = Artist.find(params[:artist_id])
+     @song = @artist.songs.find(params[:artist_id])
+ 	end
 
   	def update
   		@song = Song.find(params[:id])
@@ -56,12 +57,22 @@ class SongsController < ApplicationController
 	    end
   	end
 
-  	def destroy
-    @song = Song.find(song_params.merge(artist_id: params[:artist_id]))
+  	#def destroy
+    #@song = Song.find(song_params.merge(artist_id: params[:artist_id]))
 
-    @song.save
-    redirect_to artist_path(params[:artist_id])
-  	end
+    #@song.save
+   # redirect_to artist_path(params[:artist_id])
+  	#end
+
+def destroy
+  @artist= Artist.find(params[:artist_id])
+  @song = @artist.songs.find(params[:id])
+  @song.destroy
+
+  redirect_to artist_path(@artist)
+end
+
+
 
   	private
 

@@ -5,12 +5,16 @@
   <%= @artist.name %>
 </p>
 
+<p>
+  <%= image_tag @artist.image_url %>
+</p>
+
 <h4>List of Songs</h4>
 
 <% if @artist.songs.any? %>
   <ul>
     <% @artist.songs.each do |song| %>
-      <p><%= link_to song.title, artist_song_path(@artist, song) %></p>
+      <li><%= link_to song.title, artist_song_path(@artist, song) %></li>
     <% end %>
   </ul>
 <% else %>
@@ -19,13 +23,9 @@
 
 <hr>
 
-<%= link_to "New Song", new_artist_song_path(@artist.id) %>
+<%= link_to "[Add Song to Artist]", new_artist_song_path(@artist.id) %>
 
 <hr>
 
-<%= link_to 'Edit', edit_artist_path(@artist) %> |
-<%= link_to 'Back', artists_path %>
+<%= link_to '[Edit Artist]', edit_artist_path(@artist) %> | <%= link_to "[Delete Artist]", artist_path(@artist.id), method: :delete, data: { confirm: "Are you sure?" } %>
 
-<hr>
-
-<%= link_to "[Delete]", artist_path(@artist.id), method: :delete, data: { confirm: "Are you sure?" } %>
